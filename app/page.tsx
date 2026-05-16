@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { JSIcon, PYIcon, SQLIcon } from "./../ui/Icons";
+import { DockerIcon, JSIcon, PYIcon, SQLIcon } from "./../ui/Icons";
 
 export default function page() {
 
@@ -17,7 +17,12 @@ export default function page() {
 
       <Link href="/sql" className="flex items-center p-3 border-3 border-black gap-x-2">
         <SQLIcon w={40}></SQLIcon>
-        <h1 className="h1">Srelational Database</h1>
+        <h1 className="h1">Relational Database</h1>
+      </Link>
+
+      <Link href="/docker" className="flex items-center p-3 border-3 border-black gap-x-2">
+        <DockerIcon w={40}></DockerIcon>
+        <h1 className="h1">Docker Desktop</h1>
       </Link>
     </div>
   )
