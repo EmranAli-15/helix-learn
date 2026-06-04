@@ -53,6 +53,7 @@ export default function page() {
 
     return (
         <div>
+            <h1 className='h1 text-center'>Data Definition Language</h1>
             <h2 className='h2'>CREATE QUERIES</h2>
             <div className='code'>
                 <pre className='pre p1'>

@@ -27,7 +27,7 @@ export function CodeEditor(text: string) {
 
     // For string
     updatedText = updatedText.replace(/-s(.*?)-s/g, (_, text) => {
-        return `<span class="text-green-400">${text}</span>`;
+        return `<span class="text-green-400 text-sm">${text}</span>`;
     });
 
 

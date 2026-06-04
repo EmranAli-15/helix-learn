@@ -43,6 +43,7 @@ export default function page() {
 
     return (
         <div>
+            <h1 className='h1 text-center'>Data Manipulation Language</h1>
             <h2 className='h2'>INSERT QUERIES</h2>
             <div className='code'>
                 <pre className='pre p1'>
