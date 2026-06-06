@@ -39,6 +39,31 @@ export default function page() {
 
     -kSELEC-k address -kFROM-k customers -kWHERE-k address -kILIKE-k '%la%';
     `
+    const others = `
+    -s--AND & OR-s
+    -kSELECT-k * -kFROM-k customers
+    -kWHERE-k (height <= 4) -kAND-k (address = 'Ireland' -kOR-k age <= 30);
+
+    -s--IN & NOT IN-s
+    -kSELECT-k * -kFROM-k customers
+    -kWHERE-k address -kIN-k ('Ireland', 'Bangladesh');
+    -kSELECT-k * -kFROM-k customers
+    -kWHERE-k address -kNOT IN-k ('Ireland', 'Bangladesh');
+
+    -s--SUB QUERY ✔✔✔ (very important) -s
+    -kSELECT-k * -kFROM-k customers
+    -kWHERE-k customer_id -kIN-k (-kSELECT DISTINCT-k(customer_id) -kFROM-k orders);
+
+    -s--NULL, return if the value is NULL-s
+    -kSELECT-k * -kFROM-k customers -kAS-k c
+    -kFULL OUTER JOIN-k orders -kAS-k o
+    -kON-k c.customer_id = o.customer_id
+    -kWHERE-k o.order_id -kIS NULL-k;
+
+    -s--BETWEEN-s
+    -kSELECT-k * FROM -kcustomers-k
+    -kWHERE-k age -kBETWEEN-k 5 -kAND-k 9;
+    `
 
     return (
         <div>
@@ -59,6 +84,12 @@ export default function page() {
             <div className='code'>
                 <pre className='pre p1'>
                     <code dangerouslySetInnerHTML={{ __html: CodeEditor(like) }}></code>
+                </pre>
+            </div>
+            <h2 className='h2'>OTHERS QUERIES</h2>
+            <div className='code'>
+                <pre className='pre p1'>
+                    <code dangerouslySetInnerHTML={{ __html: CodeEditor(others) }}></code>
                 </pre>
             </div>
         </div>
